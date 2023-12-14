@@ -69,4 +69,21 @@ for (let i = 0; i < pieces.length; i++) {
         return piece.description
     });
     console.log(piecesFiltrees);
- })
+ });
+
+ //Affichages des noms des pièces abordables avec la methode map
+ const noms = pieces.map(piece => piece.nom);
+ for(let i = pieces.length-1; i>=0 ; i--){
+    if(pieces[i].prix >35){
+        noms.splice(i,1);
+    }
+ }
+ //Création de la liste des pièces abordables
+ const abordablesElements = document.createElement('ul');
+ //Ajout de chaque nom à la liste
+ for(let i=0 ;i <noms.length ; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordablesElements.appendChild(nomElement)
+ }
+ document.querySelector('.abordables').appendChild(abordablesElements)
