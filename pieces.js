@@ -106,4 +106,4 @@ for (let i = 0; i < pieces.length; i++) {
     abordablEsElements.appendChild(nomElement);
  }
  document.querySelector('.abordables').appendChild(abordablEsElements)
->>>>>>> origin/dev
+
