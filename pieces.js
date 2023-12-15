@@ -70,3 +70,19 @@ for (let i = 0; i < pieces.length; i++) {
     });
     console.log(piecesFiltrees);
  })
+ //Récupérer les noms des pièces abordables par la methode map
+ const noms = pieces.map(piece => piece.nom);
+ for(let i = pieces.length - 1; i >=0 ; i--){
+    if(pieces[i].prix > 35){
+        noms.splice(i, 1);
+    }
+    console.log(noms);
+ }
+ //Afficher les noms des pieces abordables
+ const abordablEsElements = document.createElement('ul');
+ for(let i = 0; i < noms.length; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordablEsElements.appendChild(nomElement);
+ }
+ document.querySelector('.abordables').appendChild(abordablEsElements)
