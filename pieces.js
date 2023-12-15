@@ -35,3 +35,54 @@ for (let i = 0; i < pieces.length; i++) {
     pieceElement.appendChild(stockElement);
 
  }
+ //Reordonner les fiche par la fonction sort
+ const boutonTrier = document.querySelector('.btn-trier');
+ boutonTrier.addEventListener("click", ()=>{
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort((a,b)=>{
+        return a.prix - b.prix;
+    });
+    console.log(piecesOrdonnees);
+ });
+ // Filtrer les fiches produit par le methode filtre
+ const boutonFilter = document.querySelector('.btn-filtrer');
+ boutonFilter.addEventListener("click", ()=>{
+    const piecesFiltrees = pieces.filter((piece)=>{
+        return piece.prix <= 35;
+    });
+    console.log(piecesFiltrees);
+ });
+ //Fitlrer les pièce par ordre decroissants
+ const boutonDecroissant = document.querySelector(".btn-decroissant");
+
+ boutonDecroissant.addEventListener("click", ()=>{
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort((a,b)=>{
+        return b.prix - a.prix;
+    });
+    console.log(piecesOrdonnees);
+ });
+ //Afficher les pièces sans descriptions
+ const boutonNoDescription = document.querySelector(".btn-nodesc");
+ boutonNoDescription.addEventListener("click", ()=>{
+    const piecesFiltrees = pieces.filter((piece)=>{
+        return piece.description
+    });
+    console.log(piecesFiltrees);
+ })
+ //Récupérer les noms des pièces abordables par la methode map
+ const noms = pieces.map(piece => piece.nom);
+ for(let i = pieces.length - 1; i >=0 ; i--){
+    if(pieces[i].prix > 35){
+        noms.splice(i, 1);
+    }
+    console.log(noms);
+ }
+ //Afficher les noms des pieces abordables
+ const abordablEsElements = document.createElement('ul');
+ for(let i = 0; i < noms.length; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordablEsElements.appendChild(nomElement);
+ }
+ document.querySelector('.abordables').appendChild(abordablEsElements)
