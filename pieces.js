@@ -69,7 +69,6 @@ for (let i = 0; i < pieces.length; i++) {
         return piece.description
     });
     console.log(piecesFiltrees);
-<<<<<<< HEAD
  });
 
  //Affichages des noms des pièces abordables avec la methode map
@@ -88,7 +87,7 @@ for (let i = 0; i < pieces.length; i++) {
     abordablesElements.appendChild(nomElement)
  }
  document.querySelector('.abordables').appendChild(abordablesElements)
-=======
+
  })
  //Récupérer les noms des pièces abordables par la methode map
  const noms = pieces.map(piece => piece.nom);
